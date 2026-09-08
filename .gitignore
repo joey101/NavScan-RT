@@ -1,0 +1,53 @@
+# CMake build directories and local configuration
+/build/
+/build-*/
+/cmake-build-*/
+/Debug/
+/Release/
+CMakeFiles/
+CMakeCache.txt
+CMakeUserPresets.json
+cmake_install.cmake
+compile_commands.json
+build.ninja
+rules.ninja
+.ninja_deps
+.ninja_log
+
+# Compiler intermediates and firmware build products
+*.o
+*.obj
+*.d
+*.elf
+*.axf
+*.map
+*.su
+*.cyclo
+/*.bin
+/*.hex
+/*.list
+/*.lst
+
+# Python environments and tooling caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local editor, workspace, and operating-system files
+.cache/
+.metadata/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Keep CubeMX .ioc/.mxproject files, CMakePresets.json, startup/linker files,
+# shared editor configuration, and the HAL/CMSIS/FreeRTOS sources in Git.
