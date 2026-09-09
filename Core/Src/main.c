@@ -22,6 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "app.h"
 
 /* USER CODE END Includes */
 
@@ -267,11 +268,9 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
+  (void)argument;
+  /* Enter the C++ application from this running FreeRTOS task. */
+  app_run();
   /* USER CODE END 5 */
 }
 
