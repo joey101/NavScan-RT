@@ -42,6 +42,7 @@ This project uses FreeRTOS through CMSIS-RTOS2 (`osThreadNew`, `osDelay`, etc.).
 
 | Resource | What to look for |
 | --- | --- |
+| [Nucleo-F446RE board manual — UM1724](https://www.st.com/resource/en/user_manual/dm00105823.pdf) | Board connectors, LEDs, buttons, power options, and ST-LINK. |
 | [CMSIS-RTOS2 API](https://arm-software.github.io/CMSIS_6/main/RTOS2/group__CMSIS__RTOS.html) | Threads, delays, queues, and mutexes. |
 | [Mastering the FreeRTOS Real Time Kernel](https://github.com/FreeRTOS/FreeRTOS-Kernel-Book) | Task management and scheduling; examples use the native FreeRTOS API. |
 | [PiicoDev VL53L1X board](https://core-electronics.com.au/piicodev-laser-distance-sensor-vl53l1x.html) | Electrical specifications and Resources → Schematic for wiring. |
