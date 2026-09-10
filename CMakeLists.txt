@@ -1,13 +1,6 @@
 # CMake 3.22 supports the preset format used by this project.
 cmake_minimum_required(VERSION 3.22)
 
-#
-# This file is generated only once,
-# and is not re-generated if converter is called multiple times.
-#
-# User is free to modify the file as much as necessary
-#
-
 # This root file is the place for application build settings. CubeMX regenerates
 # cmake/stm32cubemx/CMakeLists.txt, so custom source lists belong here instead.
 
@@ -29,7 +22,6 @@ set(CMAKE_C_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-
 
 # Presets select Debug or Release; retain Debug as the manual-toolchain default.
 if(NOT CMAKE_BUILD_TYPE)
