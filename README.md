@@ -28,6 +28,12 @@ python3 build.py                     # Debug build
 python3 build.py --preset Release    # Release build
 ```
 
+Writing to the STM32
+```sh
+STM32_Programmer_CLI -c port=SWD -w build/Debug/NavScan-RT.elf -v -rst
+python3 build.py & STM32_Programmer_CLI -c port=SWD -w build/Debug/NavScan-RT.elf -v -rst
+```
+
 Firmware output: `build/Debug/NavScan-RT.elf` or `build/Release/NavScan-RT.elf`.
 
 ## Documentation

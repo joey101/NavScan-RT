@@ -8,8 +8,12 @@ void app_run(void)
     // Initialize application objects here when they need initialized hardware
     // or RTOS services. Global constructors run before main(), before HAL setup.
     for (;;) {
+
+        BSP_LED_Off(LED2);
         // Add application work here. Blocking yields the CPU to other tasks.
         // CMSIS-RTOS2 measures this delay in kernel ticks, not milliseconds.
-        osDelay(1U);
+        osDelay(10000U);
+        BSP_LED_On(LED2);
+        osDelay(10000U);
     }
 }

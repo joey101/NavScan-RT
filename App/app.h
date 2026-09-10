@@ -7,6 +7,11 @@
 extern "C" {
 #endif
 
+#include "stm32f4xx_hal.h"
+
+#include "stm32f4xx_nucleo.h"
+
+
 // Runs inside the default FreeRTOS task, after the scheduler has started.
 // Like other task entry functions, this function must not return.
 void app_run(void);
