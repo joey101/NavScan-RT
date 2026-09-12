@@ -33,6 +33,7 @@ add_subdirectory(cmake/stm32cubemx)
 
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     App/src/app.cpp
+    App/src/Lidar.cpp
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
