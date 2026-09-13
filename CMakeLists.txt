@@ -33,11 +33,12 @@ add_subdirectory(cmake/stm32cubemx)
 
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     App/src/app.cpp
-    App/src/Lidar.cpp
+    Drivers/VL53L1X/src/Lidar.cpp
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     App/include
+    Drivers/VL53L1X/include
 )
 
 # CubeMX workaround for a spurious compiler-detected 'ob' library.

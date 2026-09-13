@@ -43,6 +43,7 @@ Firmware output: `build/Debug/NavScan-RT.elf` or `build/Release/NavScan-RT.elf`.
 | NUCLEO-F446RE (STM32F446RE) | WS-11147 | MCU board running FreeRTOS | [Board manual — UM1724](https://www.st.com/resource/en/user_manual/dm00105823.pdf) |
 | PiicoDev Laser Distance Sensor | CE07741 / VL53L1X | ToF distance measurements | [Board and schematic](https://core-electronics.com.au/piicodev-laser-distance-sensor-vl53l1x.html), [sensor datasheet](https://www.st.com/resource/en/datasheet/vl53l1x.pdf) |
 | Tower Pro Micro Servo 9g | SG90 | Rotate the distance sensor | [Manufacturer specifications](https://towerpro.com.tw/product/sg90-analog/) |
+| Tower Pro Digi HiSpeed standard servo | SG-5010 | Second scanner axis | [Manufacturer specifications](https://towerpro.com.tw/product/sg5010-4/), [control pulse reference](https://www.adafruit.com/product/155) |
 | PiicoDev Cable 50mm | CE07772 | Connect sensor to adapter | [Connector and wire colours](https://core-electronics.com.au/piicodev-cable-50mm.html) |
 | PiicoDev Adapter for Breadboards | CE07691 | Break out sensor power and I²C | [Adapter resources](https://core-electronics.com.au/piicodev-breadboard-adapter.html) |
 | 2 × metal DC geared motors with encoders, 12 V, 251 RPM | FIT0186 | Future mobile platform | [Specifications](https://wiki.dfrobot.com/fit0186/), [encoder wiring](https://wiki.dfrobot.com/fit0186/docs/18380) |
@@ -51,6 +52,16 @@ Firmware output: `build/Debug/NavScan-RT.elf` or `build/Release/NavScan-RT.elf`.
 The SG90 on hand has yellow, red, and black wires; verify the connector pinout before powering it. The linked SG90 page is the manufacturer's analog model reference.
 
 Motor work is deferred: the FIT0186 is rated at 7 A stalled per motor, while this driver supports 1 A continuous / 3 A peak per channel (see specifications above).
+
+## Project layout
+
+- `App/src/` and `App/include/` — application tasks that use the drivers.
+- `Drivers/VL53L1X/src/` and `Drivers/VL53L1X/include/` — our sensor driver implementation.
+- `Core/`, the other `Drivers/` directories, and `Middlewares/` — CubeMX board setup, STM32 support, and FreeRTOS.
+- `docs/datasheets/` and `docs/manuals/` — PDFs for offline reading.
+- `references/` — ST's sensor driver package for study; excluded from the firmware build.
+
+Offline: [VL53L1X datasheet](docs/datasheets/VL53L1X.pdf), [UM2510 driver guide](docs/manuals/UM2510-VL53L1X-driver-guide.pdf), [vendor reference guide](references/README.md).
 
 ## Documentation
 
