@@ -26,12 +26,16 @@ python3 -m venv .venv                # First-time setup; skip if already created
 source .venv/bin/activate            # Activate in each new terminal
 python3 build.py                     # Debug build
 python3 build.py --preset Release    # Release build
+
 ```
 
 Writing to the STM32
 ```sh
 STM32_Programmer_CLI -c port=SWD -w build/Debug/NavScan-RT.elf -v -rst
 python3 build.py & STM32_Programmer_CLI -c port=SWD -w build/Debug/NavScan-RT.elf -v -rst
+
+
+/usr/bin/python3 -m serial.tools.miniterm /dev/ttyACM0 115200 # UART Serial Terminal.
 ```
 
 Firmware output: `build/Debug/NavScan-RT.elf` or `build/Release/NavScan-RT.elf`.
@@ -56,10 +60,10 @@ Motor work is deferred: the FIT0186 is rated at 7 A stalled per motor, while thi
 ## Project layout
 
 - `App/src/` and `App/include/` — application tasks that use the drivers.
-- `Drivers/VL53L1X/src/` and `Drivers/VL53L1X/include/` — our sensor driver implementation.
+- `Drivers/VL53L1X/` — ST sensor API, headers, platform adaptation, and C++ learning code.
 - `Core/`, the other `Drivers/` directories, and `Middlewares/` — CubeMX board setup, STM32 support, and FreeRTOS.
 - `docs/datasheets/` and `docs/manuals/` — PDFs for offline reading.
-- `references/` — ST's sensor driver package for study; excluded from the firmware build.
+- `references/` — reading guide pointing to the active sensor API.
 
 Offline: [VL53L1X datasheet](docs/datasheets/VL53L1X.pdf), [UM2510 driver guide](docs/manuals/UM2510-VL53L1X-driver-guide.pdf), [vendor reference guide](references/README.md).
 

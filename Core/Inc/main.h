@@ -58,6 +58,14 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
+/* Peripheral handles defined and initialized in main.c. */
+extern I2C_HandleTypeDef hi2c1;
+extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
+extern TIM_HandleTypeDef htim4;
+extern UART_HandleTypeDef huart2;
+
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

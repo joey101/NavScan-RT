@@ -34,6 +34,9 @@ add_subdirectory(cmake/stm32cubemx)
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     App/src/app.cpp
     Drivers/VL53L1X/src/Lidar.cpp
+    Drivers/VL53L1X/src/VL53L1X_api.c
+    Drivers/VL53L1X/src/VL53L1X_calibration.c
+    Drivers/VL53L1X/platform/vl53l1_platform.c
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE

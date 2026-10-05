@@ -6,6 +6,11 @@
 extern "C" {
 #endif
 
+#include "stm32f4xx_nucleo.h"
+#include "stm32f4xx_hal_uart.h"
+#include "stm32f4xx_hal_i2c.h"
+#include "VL53L1X_api.h"
+
 // Runs in the default FreeRTOS task and must not return.
 void app_run(void);
 
