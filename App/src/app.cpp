@@ -12,6 +12,8 @@ void app_run(void)
 
     uint32_t Trials = 3;
     uint16_t devAddress = 0x52;
+    uint8_t state = 0;
+    VL53L1X_ERROR Status;
 
     status = HAL_UART_Transmit(&huart2, pData, size, timeout);
 
@@ -22,7 +24,6 @@ void app_run(void)
         osDelay(1000U);
     }
 
-
     status = HAL_I2C_IsDeviceReady(&hi2c1, devAddress, Trials, timeout);
 
     if (status == HAL_OK) {
@@ -31,12 +32,16 @@ void app_run(void)
     } else {
         uint8_t pDataTx[16] = "Sensor Failed\r\n";
         status = HAL_UART_Transmit(&huart2, pDataTx, 15, timeout);
-
     }
 
-    VL53L1X_ERROR sensorStatus = VL53L1X_SensorInit(devAddress);
+    while (!state) {
+        Status = VL53L1X_BootState(devAddress, &state);
+        HAL_Delay(2);
+    }
 
-    if (sensorStatus != VL53L1X_ERROR_NONE) {
+    Status = VL53L1X_SensorInit(devAddress);
+
+    if (Status != VL53L1X_ERROR_NONE) {
         uint8_t pDataFailed[22] = "Failed Initalization\n";
         BSP_LED_Off(LED2);
         osDelay(100U);
@@ -44,10 +49,14 @@ void app_run(void)
         osDelay(1000U);
 
         HAL_UART_Transmit(&huart2, pDataFailed, 21, timeout);
+    } else {
+        uint8_t pDataFailed[26] = "Successful Initalization\n";
+
+        HAL_UART_Transmit(&huart2, pDataFailed, 25, timeout);
     }
 
     for (;;) {
-        if (sensorStatus != VL53L1X_ERROR_NONE) {
+        if (Status != VL53L1X_ERROR_NONE) {
             BSP_LED_Off(LED2);
             osDelay(100U);
             BSP_LED_On(LED2);

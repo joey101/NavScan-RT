@@ -9,16 +9,20 @@
   *
   ******************************************************************************
   */
-  
+
 /**
  * @file  vl53l1_platform.h
  * @brief Those platform functions are platform dependent and have to be implemented by the user
  */
- 
+
 #ifndef _VL53L1_PLATFORM_H_
 #define _VL53L1_PLATFORM_H_
 
 #include "vl53l1_types.h"
+#include "main.h"
+#include "stm32f4xx_nucleo.h"
+#include "cmsis_os2.h"
+#include "stm32f4xx_hal_i2c.h"
 
 #ifdef __cplusplus
 extern "C"

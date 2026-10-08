@@ -71,6 +71,8 @@ Offline: [VL53L1X datasheet](docs/datasheets/VL53L1X.pdf), [UM2510 driver guide]
 
 This project uses FreeRTOS through CMSIS-RTOS2 (`osThreadNew`, `osDelay`, etc.).
 
+For the sensor API, use **UM2510**, which matches this project's **STSW-IMG009 Ultra Lite Driver**.
+
 | Resource | What to look for |
 | --- | --- |
 | [Nucleo-F446RE board manual — UM1724](https://www.st.com/resource/en/user_manual/dm00105823.pdf) | Board connectors, LEDs, buttons, power options, and ST-LINK. |
@@ -79,6 +81,6 @@ This project uses FreeRTOS through CMSIS-RTOS2 (`osThreadNew`, `osDelay`, etc.).
 | [PiicoDev VL53L1X board](https://core-electronics.com.au/piicodev-laser-distance-sensor-vl53l1x.html) | Electrical specifications and Resources → Schematic for wiring. |
 | [VL53L1X datasheet](https://www.st.com/resource/en/datasheet/vl53l1x.pdf) | I²C, ranging modes, timing, and measurement limitations. |
 | [Ultra Lite Driver guide — UM2510](https://www.st.com/resource/en/user_manual/um2510-a-guide-to-using-the-vl53l1x-ultra-lite-driver-stmicroelectronics.pdf) | Initialization, measurements, and adapting the platform layer. |
-| [C driver download — STSW-IMG009](https://www.st.com/en/embedded-software/stsw-img009.html) | Driver source and examples; connect its platform layer to STM32 I²C. |
+| [Ultra Lite Driver download — STSW-IMG009](https://www.st.com/en/embedded-software/stsw-img009.html) | Driver source and examples; connect its platform layer to STM32 I²C. |
 
 Start with CMSIS thread management and the PiicoDev board page, then read UM2510.
